@@ -39,7 +39,21 @@
         }
         .bottom-sheet.open {
            bottom: 0;
-            
+        }
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+            .bottom-sheet {
+                bottom: 0 !important;
+            }
+            .bottom-sheet .text-xl {
+                font-size: 1.25rem;
+            }
+            .bottom-sheet ul li a {
+                font-size: 1.25rem;
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -85,8 +99,8 @@
     <!-- Bottom Sheet Navigation -->
     <div class="fixed top-0 w-full mx-auto rounded-lg">
         <button onclick="toggleBottomSheet()" class="w-full bg-gray-800 text-white text-xl py-4 flex justify-center items-center">
-    Tic Tac Toe 2025
-</button>
+            Tic Tac Toe 2025
+        </button>
     </div>
 
     <div class="bottom-sheet w-full p-6 text-center text-white">
