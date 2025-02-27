@@ -28,7 +28,7 @@
         /* Bottom Sheet */
         .bottom-sheet {
             position: fixed;
-            bottom: -100%;
+            bottom: -100%; /* Start with the bottom sheet hidden */
             left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.9);
@@ -37,7 +37,7 @@
         }
 
         .bottom-sheet.open {
-            bottom: 0;
+            bottom: 0; /* Show the bottom sheet when it has the 'open' class */
         }
 
         /* Responsive Styles */
@@ -147,7 +147,8 @@
     <!-- Scripts -->
     <script>
         function toggleBottomSheet() {
-            document.querySelector('.bottom-sheet').classList.toggle('open');
+            const sheet = document.querySelector('.bottom-sheet');
+            sheet.classList.toggle('open');
         }
     </script>
 </body>
