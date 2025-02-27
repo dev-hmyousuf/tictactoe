@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe 2025</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN (cdnjs) -->
+    <script src="https://kit.fontawesome.com/a551d7bdf7.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Bottom Sheet */
+        .bottom-sheet {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 20px 20px 0 0;
+            transition: bottom 0.4s ease-in-out;
+        }
+
+        .bottom-sheet.open {
+            bottom: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll; /* Disable parallax scroll on mobile */
+            }
+
+            .hero-content {
+                padding: 0 1rem; /* Adjust padding */
+            }
+
+            .hero-content h1 {
+                font-size: 3rem; /* Adjust hero text size */
+            }
+
+            .hero-content p {
+                font-size: 1.25rem; /* Adjust paragraph size */
+            }
+
+            .features .feature {
+                padding: 2rem 1rem; /* Adjust padding on smaller screens */
+            }
+
+            .bottom-sheet ul li a {
+                font-size: 1.25rem; /* Adjust font size */
+                padding: 1rem; /* Adjust padding */
+            }
+
+            .bottom-sheet {
+                bottom: 0 !important;
+            }
+        }
+
+        /* Smaller screens adjustments */
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem; /* Smaller font size for mobile */
+            }
+            .hero-content p {
+                font-size: 1rem; /* Adjust paragraph size */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+
+    <!-- Hero Section with Parallax -->
+    <section class="h-screen flex items-center justify-center parallax" style="background-image: url('https://via.placeholder.com/1500');">
+        <div class="text-center hero-content">
+            <h1 class="text-6xl font-bold mb-4">Tic Tac Toe 2025</h1>
+            <p class="text-xl mb-8">The best version of Tic Tac Toe. Play anytime, anywhere.</p>
+            <a href="https://github.com/dev-hmyousuf/tictactoe/releases/download/Version/Tictactoe2025.apk"
+               class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-4 rounded-lg text-2xl font-semibold transition"
+               download>
+                Download Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white text-gray-900 pb-32">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12">Features</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="feature p-6 shadow-lg rounded-lg bg-gray-50 hover:shadow-xl transition">
+                    <i class="fas fa-gamepad text-5xl mb-4 text-yellow-500"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Classic Gameplay</h3>
+                    <p>Enjoy the classic Tic Tac Toe game with a modern twist!</p>
+                </div>
+                <div class="feature p-6 shadow-lg rounded-lg bg-gray-50 hover:shadow-xl transition">
+                    <i class="fas fa-mobile-alt text-5xl mb-4 text-yellow-500"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Mobile Optimized</h3>
+                    <p>Play smoothly on your phone, anytime, anywhere.</p>
+                </div>
+                <div class="feature p-6 shadow-lg rounded-lg bg-gray-50 hover:shadow-xl transition">
+                    <i class="fas fa-share-alt text-5xl mb-4 text-yellow-500"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Share & Compete</h3>
+                    <p>Challenge your friends and share your score with ease.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Sheet Navigation -->
+    <div class="fixed top-0 w-full mx-auto rounded-lg">
+        <button onclick="toggleBottomSheet()" class="w-full bg-gray-800 text-white text-xl py-4 flex justify-center items-center">
+            Tic Tac Toe 2025
+        </button>
+    </div>
+
+    <div class="bottom-sheet w-full p-6 text-center text-white">
+        <button class="text-2xl absolute top-2 right-4" onclick="toggleBottomSheet()">✖</button>
+        <h2 class="font-semibold mb-6">Navigation</h2>
+        <ul class="space-y-4">
+            <li><a href="#" class="w-full text-3xl bg-[#f8f8f8] text-xl text-gray-800 rounded-md block py-4">Home</a></li>
+            <li><a href="privacy-policy.html" class="w-full text-3xl bg-[#f8f8f8] text-xl text-gray-800 rounded-md block py-4">Privacy Policy</a></li>
+            <li><a href="https://github.com/dev-hmyousuf/tictactoe/releases/download/Version/Tictactoe2025.apk" download class="w-full text-3xl bg-[#f8f8f8] text-xl text-gray-800 rounded-md block py-4">Download App</a></li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4 ">
+        <p class="text-sm">© 2025 H.M. Yousuf. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleBottomSheet() {
+            document.querySelector('.bottom-sheet').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
