@@ -28,7 +28,7 @@
         /* Bottom Sheet */
         .bottom-sheet {
             position: fixed;
-            bottom: -100%; /* Start with the bottom sheet hidden */
+            bottom: -100%; /* Initially hide */
             left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.9);
@@ -37,48 +37,34 @@
         }
 
         .bottom-sheet.open {
-            bottom: 0; /* Show the bottom sheet when it has the 'open' class */
+            bottom: 0; /* Show when 'open' class is added */
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
             .parallax {
-                background-attachment: scroll; /* Disable parallax scroll on mobile */
+                background-attachment: scroll; /* Disable parallax on mobile */
             }
 
             .hero-content {
-                padding: 0 1rem; /* Adjust padding */
+                padding: 0 1rem;
             }
 
             .hero-content h1 {
-                font-size: 3rem; /* Adjust hero text size */
+                font-size: 3rem;
             }
 
             .hero-content p {
-                font-size: 1.25rem; /* Adjust paragraph size */
+                font-size: 1.25rem;
             }
 
             .features .feature {
-                padding: 2rem 1rem; /* Adjust padding on smaller screens */
+                padding: 2rem 1rem;
             }
 
             .bottom-sheet ul li a {
-                font-size: 1.25rem; /* Adjust font size */
-                padding: 1rem; /* Adjust padding */
-            }
-
-            .bottom-sheet {
-                bottom: 0 !important;
-            }
-        }
-
-        /* Smaller screens adjustments */
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem; /* Smaller font size for mobile */
-            }
-            .hero-content p {
-                font-size: 1rem; /* Adjust paragraph size */
+                font-size: 1.25rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -124,13 +110,14 @@
 
     <!-- Bottom Sheet Navigation -->
     <div class="fixed top-0 w-full mx-auto rounded-lg">
-        <button onclick="toggleBottomSheet()" class="w-full bg-gray-800 text-white text-xl py-4 flex justify-center items-center">
+        <button id="openBtn" class="w-full bg-gray-800 text-white text-xl py-4 flex justify-center items-center">
             Tic Tac Toe 2025
         </button>
     </div>
 
-    <div class="bottom-sheet w-full p-6 text-center text-white">
-        <button class="text-2xl absolute top-2 right-4" onclick="toggleBottomSheet()">✖</button>
+    <!-- Bottom Sheet Content -->
+    <div id="bottomSheet" class="bottom-sheet w-full p-6 text-center text-white">
+        <button id="closeBtn" class="text-2xl absolute top-2 right-4">✖</button>
         <h2 class="font-semibold mb-6">Navigation</h2>
         <ul class="space-y-4">
             <li><a href="#" class="w-full text-3xl bg-[#f8f8f8] text-xl text-gray-800 rounded-md block py-4">Home</a></li>
@@ -140,16 +127,24 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-4 ">
+    <footer class="bg-gray-900 text-white text-center py-4">
         <p class="text-sm">© 2025 H.M. Yousuf. All rights reserved.</p>
     </footer>
 
     <!-- Scripts -->
     <script>
-        function toggleBottomSheet() {
-            const sheet = document.querySelector('.bottom-sheet');
-            sheet.classList.toggle('open');
-        }
+        // Function to toggle bottom sheet visibility
+        const openBtn = document.getElementById('openBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const bottomSheet = document.getElementById('bottomSheet');
+
+        openBtn.addEventListener('click', () => {
+            bottomSheet.classList.add('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            bottomSheet.classList.remove('open');
+        });
     </script>
 </body>
 </html>
