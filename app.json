@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.hmyousuf2010.tictactoe2025"
+      "bundleIdentifier": "com.hmyousuf2010.tictactoe2025",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -40,9 +43,7 @@
       "typedRoutes": true
     },
     "packagerOpts": {
-      "assetExts": [
-        "svg"
-      ]
+      "assetExts": ["svg"]
     },
     "extra": {
       "router": {
