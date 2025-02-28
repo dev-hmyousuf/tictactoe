@@ -17,8 +17,9 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo/foreground.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/logo/adaptiveIcon.png",
+        "monochromeImage": "./assets/images/logo/adaptiveIcon.png",
+        "backgroundColor": "#f0f0f0"
       },
       "package": "com.hmyousuf2010.tictactoe2025"
     },
@@ -32,10 +33,14 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/logo/foreground.png",
+          "image": "./assets/images/logo/adaptiveIcon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#f0f0f0"
+          "backgroundColor": "#f0f0f0",
+          "dark": {
+            "image": "./assets/images/logo/adaptiveIconDark.png",
+            "backgroundColor": "#000000"
+          }
         }
       ]
     ],
