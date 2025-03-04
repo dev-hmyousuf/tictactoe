@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import GameBoard from '@/components/GameBoard';
 import CustomHeader from '../components/CustomHeader';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 
 const SinglePlayerScreen = () => {
+  const navigation = useNavigation();
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('easy');
 
   const handleDifficultyChange = (level: 'easy' | 'medium' | 'hard') => {
@@ -44,6 +47,11 @@ const SinglePlayerScreen = () => {
           <GameBoard difficulty={difficulty} isSinglePlayer={true} onReset={() => {}} />
         </View>
       </View>
+
+      {/* Floating Home Button */}
+      <TouchableOpacity style={styles.floatingButton} onPress={() => navigation.navigate('Home')}>
+        <Ionicons name="home" size={28} color="white" />
+      </TouchableOpacity>
     </LinearGradient>
   );
 };
@@ -104,6 +112,22 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
     elevation: 4,
   },
+  floatingButton: {
+    position: 'absolute',
+    bottom: 30,
+    right: 30,
+    backgroundColor: '#3b82f6',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
+  },
 });
 
-export default SinglePlayerScreen; 
+export default SinglePlayerScreen;
