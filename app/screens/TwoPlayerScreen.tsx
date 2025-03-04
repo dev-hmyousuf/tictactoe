@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import GameBoard from '@/components/GameBoard'; // Assuming GameBoard is the component for the game logic
-import CustomHeader from '../components/CustomHeader'; // Import the custom header
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+import GameBoard from '@/components/GameBoard';
+import CustomHeader from '../components/CustomHeader';
 
 const TwoPlayerScreen = () => {
+  const navigation = useNavigation();
+
   const handleReset = () => {
     // Any additional logic on reset can be added here
   };
@@ -12,9 +16,15 @@ const TwoPlayerScreen = () => {
     <View style={styles.container}>
       <CustomHeader title="Two Player" />
       <Text style={styles.title}>Two Player Mode</Text>
+      
       <View style={styles.gameBoardContainer}>
         <GameBoard onReset={handleReset} isSinglePlayer={false} />
       </View>
+
+      {/* Floating Home Button */}
+      <TouchableOpacity style={styles.floatingButton} onPress={() => navigation.navigate('Home')}>
+        <Ionicons name="home" size={28} color="white" />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -30,7 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginVertical: 20,
-    fontFamily: 'Arial', // Use a custom font if available
+    fontFamily: 'Arial',
   },
   gameBoardContainer: {
     flex: 1,
@@ -45,6 +55,22 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 4,
   },
+  floatingButton: {
+    position: 'absolute',
+    bottom: 30,
+    right: 30,
+    backgroundColor: '#3b82f6',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
+  },
 });
 
-export default TwoPlayerScreen; 
+export default TwoPlayerScreen;
