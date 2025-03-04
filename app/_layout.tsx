@@ -1,6 +1,6 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -15,7 +15,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const colorScheme = useColorScheme();
@@ -36,18 +36,11 @@ export default function App() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <SafeAreaView style={styles.safeArea}>
-        <Tab.Navigator
-          screenOptions={{
-            headerShown: false,
-            tabBarActiveTintColor: '#000',
-            tabBarInactiveTintColor: '#000',
-            tabBarStyle: { backgroundColor: '#fff' },
-          }}
-        >
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Single Player" component={SinglePlayerScreen} />
-          <Tab.Screen name="Two Player" component={TwoPlayerScreen} />
-        </Tab.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="SinglePlayer" component={SinglePlayerScreen} />
+          <Stack.Screen name="TwoPlayer" component={TwoPlayerScreen} />
+        </Stack.Navigator>
         <StatusBar style="auto" />
       </SafeAreaView>
     </ThemeProvider>
